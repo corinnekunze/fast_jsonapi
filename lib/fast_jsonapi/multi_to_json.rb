@@ -75,6 +75,10 @@ module FastJsonapi
       _fast_to_json(object)
     end
 
+    def self.as_json(object)
+      object.as_json
+    end
+
     def self.define_to_json(receiver)
       cl = caller_locations[0]
       method_body = to_json_method

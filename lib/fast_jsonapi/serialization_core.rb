@@ -95,6 +95,11 @@ module FastJsonapi
         FastJsonapi::MultiToJson.to_json(payload) if payload.present?
       end
 
+      # Pulling #as_json method to be used by serializer
+      def as_json(payload)
+        FastJsonapi::MultiToJson.as_json(payload) if payload.present?
+      end
+
       # includes handler
 
       def get_included_records(record, includes_list, known_included_objects)
