@@ -76,7 +76,7 @@ module FastJsonapi
     end
 
     def serialized_as_json
-      self.class.as_json(serializable_hash)
+      serializable_hash.as_json
     end
 
     private

@@ -83,10 +83,15 @@ describe FastJsonapi::ObjectSerializer do
     end
 
     context 'when serializing json as object' do
-      it 'returns an object' do
+      it 'returns a json hash' do
         json_hash = MovieSerializer.new(movie).serialized_as_json
         expect(json_hash['data']['id']).to eq movie.id.to_s
-      end 
+      end
+
+      it 'returns multiple records' do
+        json_hash = MovieSerializer.new([movie, movie]).serialized_as_json
+        expect(json_hash['data'].length).to eq 2
+      end
     end
 
     it 'returns errors when serializing with non-existent includes key' do
