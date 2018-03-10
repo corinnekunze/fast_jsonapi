@@ -75,11 +75,6 @@ module FastJsonapi
       self.class.to_json(serializable_hash)
     end
 
-    # overwrites as_json so that it will return correct records for serializer
-    def as_json
-      serializable_hash.as_json
-    end
-
     private
 
     def process_options(options)
